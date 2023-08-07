@@ -11,13 +11,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  tencentVideoAutoCheck:
+  tencentVideoAutoCheck-in:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         run: |
           git clone https://github.com/arlettebrook/tencentVideoSign-in-Actions.git
+          pwd
           cd tencentVideoSign-in-Actions 
 
       - name: Set up Python
@@ -31,6 +32,7 @@ jobs:
 
       - name: Run check-in-status
         run: |
+          pwd
           python main.py --login_cookie "$LOGIN_COOKIE" --login_url "$LOGIN_URL" --login_url_payload "$LOGIN_URL_PAYLOADLOAD" --PUSHPLUS_TOKEN "$PUSHPLUS_TOKEN" --GET_VIP_INFO_URL_PAYLOAD "$GET_VIP_INFO_URL_PAYLOAD" >> run.log
         env:
           LOGIN_COOKIE: ${{ secrets.LOGIN_COOKIE }}

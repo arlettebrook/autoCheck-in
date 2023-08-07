@@ -1,0 +1,2 @@
+# tencentVideoAutoDraw
+tencentVideoAutoDraw，腾讯视频自动签到领取V力值。

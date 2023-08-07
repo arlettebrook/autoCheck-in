@@ -19,6 +19,7 @@ jobs:
         run: |
           git clone https://github.com/arlettebrook/tencentVideoSign-in-Actions.git
           pwd
+          ls
           cd tencentVideoSign-in-Actions 
 
       - name: Set up Python

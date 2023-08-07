@@ -33,6 +33,7 @@ jobs:
 
       - name: Run check-in-status
         run: |
+          ls
           pwd
           python main.py --login_cookie "$LOGIN_COOKIE" --login_url "$LOGIN_URL" --login_url_payload "$LOGIN_URL_PAYLOADLOAD" --PUSHPLUS_TOKEN "$PUSHPLUS_TOKEN" --GET_VIP_INFO_URL_PAYLOAD "$GET_VIP_INFO_URL_PAYLOAD" >> run.log
         env:

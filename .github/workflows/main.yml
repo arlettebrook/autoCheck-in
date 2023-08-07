@@ -6,7 +6,7 @@ on:
       - main
   schedule:
     - cron: '1 16 * * *' #国际标准时间：北京时间00：01
-    - cron: '50 15 * * *' #北京时间23：50
+    - cron: '30 15 * * *' #北京时间23：50
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -18,10 +18,7 @@ jobs:
       - name: Checkout code
         run: |
           git clone https://github.com/arlettebrook/tencentVideoSign-in-Actions.git
-          pwd
-          ls
-          cd tencentVideoSign-in-Actions 
-          pwd
+          
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -30,15 +27,16 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pwd
           python -m pip install --upgrade pip
+          cd tencentVideoSign-in-Actions
+          pwd
+          pip install -r requirements.txt  # 安装依赖
 
       - name: Run check-in-status
         run: |
           ls
           cd tencentVideoSign-in-Actions
           pwd
-          pip install -r requirements.txt  # 安装依赖
           python main.py --login_cookie "$LOGIN_COOKIE" --login_url "$LOGIN_URL" --login_url_payload "$LOGIN_URL_PAYLOADLOAD" --PUSHPLUS_TOKEN "$PUSHPLUS_TOKEN" --GET_VIP_INFO_URL_PAYLOAD "$GET_VIP_INFO_URL_PAYLOAD" >> run.log
         env:
           LOGIN_COOKIE: ${{ secrets.LOGIN_COOKIE }}

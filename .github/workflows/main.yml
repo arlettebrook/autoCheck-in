@@ -21,6 +21,7 @@ jobs:
           pwd
           ls
           cd tencentVideoSign-in-Actions 
+          pwd
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -29,6 +30,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          pwd
           python -m pip install --upgrade pip
 
       - name: Run check-in-status
@@ -36,6 +38,7 @@ jobs:
           ls
           cd tencentVideoSign-in-Actions
           pwd
+          pip install -r requirements.txt  # 安装依赖
           python main.py --login_cookie "$LOGIN_COOKIE" --login_url "$LOGIN_URL" --login_url_payload "$LOGIN_URL_PAYLOADLOAD" --PUSHPLUS_TOKEN "$PUSHPLUS_TOKEN" --GET_VIP_INFO_URL_PAYLOAD "$GET_VIP_INFO_URL_PAYLOAD" >> run.log
         env:
           LOGIN_COOKIE: ${{ secrets.LOGIN_COOKIE }}

@@ -25,6 +25,8 @@
 * [x] 腾讯视频每日凌晨自动签到
 * [x] 腾讯视频每日凌晨自动领取一小时V力值任务【前提已完成，否则为0】
 * [x] 腾讯视频自动推送每日完成任务情况
+* [x] 爱奇艺自动领取日常任务【前提手动已完成】
+* [x] 爱奇艺自动推送每日完成任务情况
 
 
 
@@ -51,13 +53,14 @@
 
 ### 
 
-|           名称           |             内容             |   类型   |              说明              |
-| :----------------------: | :--------------------------: | :------: | :----------------------------: |
-|       LOGIN_COOKIE       |     腾讯视频login_cookie     | 必写参数 |        失败之后重新获取        |
-|        LOGIN_URL         |      腾讯视频login_url       | 必写参数 |        失败之后重新获取        |
-|  LOGIN_URL_PAYLOADLOAD   |  腾讯视频login_url的请求体   | 可选参数 |          失败建议加上          |
-| GET_VIP_INFO_URL_PAYLOAD | 腾讯视频获取会员信息的请求体 | 可选参数 |          失败建议加上          |
-|      PUSHPLUS_TOKEN      |        推送加的token         | 可选参数 | 建议加上，能够推送任务完成情况 |
+|       Secrets名称        |             内容             | 是否必须 |                    说明                    |
+| :----------------------: | :--------------------------: | :------: | :----------------------------------------: |
+|       LOGIN_COOKIE       |     腾讯视频login_cookie     |    是    | 不写，不启用腾讯视频任务，失败之后重新获取 |
+|        LOGIN_URL         |      腾讯视频login_url       |    是    |              失败之后重新获取              |
+|  LOGIN_URL_PAYLOADLOAD   |  腾讯视频login_url的请求体   |    否    |                失败建议加上                |
+| GET_VIP_INFO_URL_PAYLOAD | 腾讯视频获取会员信息的请求体 |    否    |                失败建议加上                |
+|      PUSHPLUS_TOKEN      |        推送加的token         |    否    |       建议加上，能够推送任务完成情况       |
+|        IQY_COOKIE        |      爱奇艺login_cookie      |    是    |  不写，不启用爱奇艺任务，失败之后重新获取  |
 
 
 
@@ -81,6 +84,7 @@
 > 注意：如果报错没有通过图像验证，需要在cookie中加入vdevice_qimei36='...'[使用常用手机打开获取](https://m.v.qq.com/schemerul)
 
 7. `GET_VIP_INFO_URL_PAYLOAD`[同样方法获取该链接的请求体](https://vip.video.qq.com/rpc/trpc.query_vipinfo.vipinfo.QueryVipInfo/GetVipUserInfoH5)
+7. 爱奇艺的`IQY_COOKIE`同理，扫码登录[爱奇艺](https://iqyi.com)官网之后，点击[链接](http://serv.vip.iqiyi.com/vipgrowth/query.action)进入控制台查看cookie
 
 
 

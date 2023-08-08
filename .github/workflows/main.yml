@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout code one
         run: |
           git clone https://github.com/arlettebrook/tencentVideoSign-in-Actions.git
           
@@ -46,6 +46,9 @@ jobs:
           GET_VIP_INFO_URL_PAYLOAD: ${{secrets.GET_VIP_INFO_URL_PAYLOAD}}
           IQY_COOKIE: ${{secrets.IQY_COOKIE}}
 
+      - name: Checkout code two
+        uses: actions/checkout@v2  
+        
       - name: Append Success Log #追加成功日志
         run: |
           echo "$(date +%Y-%m-%d\ %H:%M:%S) - 签到成功" >> run.log

@@ -13,7 +13,7 @@
 
 ## 🎈今日签到状态
 
-![tencnetVideoAutoCheck](https://github.com/arlettebrook/tencentVideoAutoDraw/actions/workflows/main.yml/badge.svg)
+![autoCheck-in](https://github.com/arlettebrook/autoCheck-in/actions/workflows/main.yml/badge.svg)
 
 ---
 

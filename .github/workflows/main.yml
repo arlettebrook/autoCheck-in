@@ -1,5 +1,5 @@
-name: tencentVideoAutoCheck-in
-run-name: tencentVideoAutCheck-in 🚀
+name: autoCheck-in
+run-name: autCheck-in 🚀
 on:
   push:
     branches:

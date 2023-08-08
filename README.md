@@ -1,13 +1,14 @@
-
 <p align="center">
-  <h2 align="center"><storng>腾讯视频自动签到</storng></h2>
+  <h2 align="center"><storng>自动签到</storng></h2>
   <p align="center">
+    autoCheck-in
     Github Action版
     <br/>
     <br/>
     <br/>
   </p>
 </p>
+
 
 
 
@@ -21,9 +22,9 @@
 
 ## **⚡ 支持**   
 
-* [x] 每日凌晨自动签到
-* [x] 每日凌晨自动领取一小时V力值任务【前提已完成，否则为0】
-* [x] 自动推送每日完成任务情况
+* [x] 腾讯视频每日凌晨自动签到
+* [x] 腾讯视频每日凌晨自动领取一小时V力值任务【前提已完成，否则为0】
+* [x] 腾讯视频自动推送每日完成任务情况
 
 
 
@@ -31,11 +32,9 @@
 
 
 
-### 🙍🏻‍♀️配置流程
+#### 🙍🏻‍♀️腾讯视频配置流程
 
-
-
-1. Fork 本仓库，然后点击你的仓库右上角的 Settings，找到 Secrets 这一项actions，添加 LOGIN_COOKIE 、LOGIN_URL、 LOGIN_URL_PAYLOADLOAD、PUSHPLUS_TOKEN、GET_VIP_INFO_URL_PAYLOAD五个Secrets。
+1. Fork 本仓库，然后点击你的仓库右上角的 Settings，找到 Secrets 这一项actions，添加 `LOGIN_COOKIE` 、`LOGIN_URL`、 `LOGIN_URL_PAYLOADLOAD`、`PUSHPLUS_TOKEN`、`GET_VIP_INFO_URL_PAYLOAD`五个Secrets。
 
    ![image-20230806202139340](README.assets/image-20230806202139340.png)
 
@@ -50,11 +49,23 @@
 
 4. 至此自动签到就搭建完毕了。
 
+### 
+
+|           名称           |             内容             |   类型   |              说明              |
+| :----------------------: | :--------------------------: | :------: | :----------------------------: |
+|       LOGIN_COOKIE       |     腾讯视频login_cookie     | 必写参数 |        失败之后重新获取        |
+|        LOGIN_URL         |      腾讯视频login_url       | 必写参数 |        失败之后重新获取        |
+|  LOGIN_URL_PAYLOADLOAD   |  腾讯视频login_url的请求体   | 可选参数 |          失败建议加上          |
+| GET_VIP_INFO_URL_PAYLOAD | 腾讯视频获取会员信息的请求体 | 可选参数 |          失败建议加上          |
+|      PUSHPLUS_TOKEN      |        推送加的token         | 可选参数 | 建议加上，能够推送任务完成情况 |
+
+
+
 ---
 
 
 
-### 🙍🏻‍♂️login_cookie等参数的获取
+#### 🙍🏻‍♂️login_cookie等参数的获取
 
 
 
@@ -77,7 +88,7 @@
 
 
 
-### 🙎🏻‍♀️配置workflow执行信息写入到run.log
+#### 🙎🏻‍♀️配置workflow执行信息写入到run.log
 
 
 
@@ -94,7 +105,7 @@
 
 
 
-### 🙅🏻‍♀️查看运行状态
+## 🚗查看运行状态
 
 进入jobs查看check-in-status步骤即可查看输出日志
 

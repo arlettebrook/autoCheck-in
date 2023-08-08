@@ -51,7 +51,7 @@ jobs:
         
       - name: Append Success Log #追加成功日志
         run: |
-          echo "$(date +%Y-%m-%d\ %H:%M:%S) - 签到成功" >> run.log
+          echo "$(date +%Y-%m-%d\ %H:%M:%S) - 今日任务执行成功" >> run.log
       - name: Upload log #上传日志
         uses: actions/upload-artifact@v2
         with:

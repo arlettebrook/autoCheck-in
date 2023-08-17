@@ -85,7 +85,7 @@
 6. `PUSHPLUS_TOKEN`公众号pushplus获取
 
 > - 注意：
->   - 如果报错没有通过图像验证，需要在cookie中加入vdevice_qimei36='...'[使用常用手机打开获取](https://m.v.qq.com/schemerul)。
+>   - 如果报错没有通过图像验证，需要在cookie中加入vdevice_qimei36='...'[使用常用手机打开获取](https://m.v.qq.com/schemeurl)。
 >   - 加上使用一段时间之后，又出现图形验证，需要手动签到一次。
 
 7. `GET_VIP_INFO_URL_PAYLOAD`[同样方法获取该链接的请求体](https://vip.video.qq.com/rpc/trpc.query_vipinfo.vipinfo.QueryVipInfo/GetVipUserInfoH5)

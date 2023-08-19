@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    #- cron: '1 16 * * *' #国际标准时间：北京时间00：01
+    - cron: '1 16 * * *' #国际标准时间：北京时间00：01
     - cron: '30 15 * * *' #北京时间23：30
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -37,7 +37,7 @@ jobs:
           ls
           cd tencentVideoSign-in-Actions
           pwd
-          python main.py --login_cookie "$LOGIN_COOKIE" --login_url "$LOGIN_URL" --login_url_payload "$LOGIN_URL_PAYLOADLOAD" --PUSHPLUS_TOKEN "$PUSHPLUS_TOKEN" --GET_VIP_INFO_URL_PAYLOAD "$GET_VIP_INFO_URL_PAYLOAD" --IQY_COOKIE "$IQY_COOKIE" >> run.log
+          python main.py --login_cookie "$LOGIN_COOKIE" --login_url "$LOGIN_URL" --login_url_payload "$LOGIN_URL_PAYLOADLOAD" --PUSHPLUS_TOKEN "$PUSHPLUS_TOKEN" --GET_VIP_INFO_URL_PAYLOAD "$GET_VIP_INFO_URL_PAYLOAD" --IQY_COOKIE "$IQY_COOKIE" --LOG_LEVEL "$LOG_LEVEL" >> run.log
         env:
           LOGIN_COOKIE: ${{ secrets.LOGIN_COOKIE }}
           LOGIN_URL: ${{secrets.LOGIN_URL}}
@@ -45,6 +45,7 @@ jobs:
           PUSHPLUS_TOKEN: ${{secrets.PUSHPLUS_TOKEN}}
           GET_VIP_INFO_URL_PAYLOAD: ${{secrets.GET_VIP_INFO_URL_PAYLOAD}}
           IQY_COOKIE: ${{secrets.IQY_COOKIE}}
+          LOG_LEVEL: ${{secrets.LOG_LEVEL}}
 
       - name: Checkout code two
         uses: actions/checkout@v2  

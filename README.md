@@ -126,6 +126,15 @@
 
 
 
+## 📞注意事项
+
+- 推送代码只写了PUSHPLUS的，可以自己拓展其他的推送
+- 已经测试COOKIE有效时间超过三个月 目前还没过期
+
+---
+
+
+
 ## ✨相似项目
 
 - [bigoceans/TencentVideoAutoCheck](https://github.com/bigoceans/TencentVideoAutoCheck)

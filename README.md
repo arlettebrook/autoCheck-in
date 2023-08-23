@@ -147,7 +147,7 @@
 
 - [bigoceans/TencentVideoAutoCheck](https://github.com/bigoceans/TencentVideoAutoCheck)
 - [bigoceans/TencentVideoAutoCheck2.0](https://github.com/bigoceans/TencentVideoAutoCheck2.0)
-- [tjsky/TieBaSign](https://github.com/tjsky/TieBaSign)
+- [LuoSue/TiebaSignIn-1](https://github.com/LuoSue/TiebaSignIn-1)
 - [raindrop-hb/tencent-video](https://github.com/raindrop-hb/tencent-video)
 - [arlettebrook/tencentVideoSign-in](https://github.com/arlettebrook/tencentVideoSign-in)
 

@@ -1,5 +1,5 @@
 name: autoCheck-in
-run-name: autCheck-in 🚀
+run-name: autoCheck-in 🚀
 on:
   push:
     branches:
@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  tencentVideoAutoCheck-in:
+  tencentVideoSign-in-Actions:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,16 +28,11 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          cd tencentVideoSign-in-Actions
-          pwd
-          pip install -r requirements.txt  # 安装依赖
+          pip install -r tencentVideoSign-in-Actions/requirements.txt  # 安装依赖
 
       - name: Run check-in-status
         run: |
-          ls
-          cd tencentVideoSign-in-Actions
-          pwd
-          python main.py --login_cookie "$LOGIN_COOKIE" --login_url "$LOGIN_URL" --login_url_payload "$LOGIN_URL_PAYLOADLOAD" --PUSHPLUS_TOKEN "$PUSHPLUS_TOKEN" --GET_VIP_INFO_URL_PAYLOAD "$GET_VIP_INFO_URL_PAYLOAD" --IQY_COOKIE "$IQY_COOKIE" --LOG_LEVEL "$LOG_LEVEL" >> run.log
+          python tencentVideoSign-in-Actions/main.py --login_cookie "$LOGIN_COOKIE" --login_url "$LOGIN_URL" --login_url_payload "$LOGIN_URL_PAYLOADLOAD" --PUSHPLUS_TOKEN "$PUSHPLUS_TOKEN" --GET_VIP_INFO_URL_PAYLOAD "$GET_VIP_INFO_URL_PAYLOAD" --IQY_COOKIE "$IQY_COOKIE" --LOG_LEVEL "$LOG_LEVEL" --BDUSS "$BDUSS" >> run.log
         env:
           LOGIN_COOKIE: ${{ secrets.LOGIN_COOKIE }}
           LOGIN_URL: ${{secrets.LOGIN_URL}}
@@ -46,6 +41,7 @@ jobs:
           GET_VIP_INFO_URL_PAYLOAD: ${{secrets.GET_VIP_INFO_URL_PAYLOAD}}
           IQY_COOKIE: ${{secrets.IQY_COOKIE}}
           LOG_LEVEL: ${{secrets.LOG_LEVEL}}
+          BDUSS: ${{secrets.BDUSS}}
 
       - name: Checkout code two
         uses: actions/checkout@v2  

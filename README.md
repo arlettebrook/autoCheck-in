@@ -27,6 +27,7 @@
 * [x] 腾讯视频自动推送每日完成任务情况
 * [x] 爱奇艺自动领取并完成日常任务
 * [x] 爱奇艺自动推送每日完成任务情况
+* [x] 贴吧自动签到
 
 ---
 
@@ -55,15 +56,16 @@
 
 ### 
 
-|       Secrets名称        |             内容             | 是否必须 |                             说明                             |
-| :----------------------: | :--------------------------: | :------: | :----------------------------------------------------------: |
-|        LOG_LEVEL         |      日志级别默认为INFO      |    否    | 修改为DEBUG可用看到更多内容，方便查错，同时部分用户信息会暴露 |
-|       LOGIN_COOKIE       |     腾讯视频login_cookie     |    是    |          不写，不启用腾讯视频任务，失败之后重新获取          |
-|        LOGIN_URL         |      腾讯视频login_url       |    是    |                       失败之后重新获取                       |
-|  LOGIN_URL_PAYLOADLOAD   |  腾讯视频login_url的请求体   |    否    |                         失败建议加上                         |
-| GET_VIP_INFO_URL_PAYLOAD | 腾讯视频获取会员信息的请求体 |    否    |                         失败建议加上                         |
-|      PUSHPLUS_TOKEN      |        推送加的token         |    否    |                建议加上，能够推送任务完成情况                |
-|        IQY_COOKIE        |      爱奇艺login_cookie      |    是    |           不写，不启用爱奇艺任务，失败之后重新获取           |
+|       Secrets名称        |             介绍             | 启用是否必须 |                            说明                             |
+| :----------------------: | :--------------------------: | :----------: | :---------------------------------------------------------: |
+|          BDUSS           |       贴吧login_cookie       |      是      |           不写，不启用贴吧任务，失败之后重新获取            |
+|        LOG_LEVEL         |      日志级别默认为INFO      |      否      | 修改为DEBUG可看到更多内容，方便查错，同时部分用户信息会暴露 |
+|       LOGIN_COOKIE       |     腾讯视频login_cookie     |      是      |         不写，不启用腾讯视频任务，失败之后重新获取          |
+|        LOGIN_URL         |      腾讯视频login_url       |      是      |                      失败之后重新获取                       |
+|  LOGIN_URL_PAYLOADLOAD   |  腾讯视频login_url的请求体   |      否      |                        失败建议加上                         |
+| GET_VIP_INFO_URL_PAYLOAD | 腾讯视频获取会员信息的请求体 |      否      |                        失败建议加上                         |
+|      PUSHPLUS_TOKEN      |        推送加的token         |      否      |               建议加上，能够推送任务完成情况                |
+|        IQY_COOKIE        |      爱奇艺login_cookie      |      是      |          不写，不启用爱奇艺任务，失败之后重新获取           |
 
 
 
@@ -90,6 +92,7 @@
 
 7. `GET_VIP_INFO_URL_PAYLOAD`[同样方法获取该链接的请求体](https://vip.video.qq.com/rpc/trpc.query_vipinfo.vipinfo.QueryVipInfo/GetVipUserInfoH5)
 7. 爱奇艺的`IQY_COOKIE`同理，扫码登录[爱奇艺](https://iqyi.com)官网之后，点击[链接](http://serv.vip.iqiyi.com/vipgrowth/query.action)进入控制台查看cookie
+7. 网址扫码登录贴吧官网之后，然后按下`F12`打开调试模式，在`cookie`中找到`BDUSS`，并复制其`Value`值。
 
 
 
@@ -130,6 +133,11 @@
 
 - 推送代码只写了PUSHPLUS的，可以自己拓展其他的推送
 - 已经测试COOKIE有效时间超过三个月 目前还没过期
+- 腾讯视频
+  - 不是所有帐号都能签到成功因为有的帐号会触发滑块认证或者短信验证
+  - 使用常用手机打开后面的连接，注意是https，成功进入之后点击查看设备信息，QIMEI36字段就是vdevice_qimei36='...'，按照cookie格式加在LOGIN_COOKIE末尾即可。
+  - 注意：如果你平时签到之类的都需要验证码和滑块验证，加上这个字段之后并不能解决问题。目前部分账号会出现安全验证。
+
 
 ---
 
@@ -139,6 +147,7 @@
 
 - [bigoceans/TencentVideoAutoCheck](https://github.com/bigoceans/TencentVideoAutoCheck)
 - [bigoceans/TencentVideoAutoCheck2.0](https://github.com/bigoceans/TencentVideoAutoCheck2.0)
+- [tjsky/TieBaSign](https://github.com/tjsky/TieBaSign)
 - [raindrop-hb/tencent-video](https://github.com/raindrop-hb/tencent-video)
 - [arlettebrook/tencentVideoSign-in](https://github.com/arlettebrook/tencentVideoSign-in)
 

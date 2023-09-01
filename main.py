@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import os.path
 import sys
-from typing import Optional, List, Dict
+from typing import Optional, List
 
 import toml
 from charset_normalizer import from_bytes
@@ -12,8 +12,15 @@ from pydantic import BaseModel
 
 class Push(BaseModel):
     # 是否开启推送 默认关闭
-    PUSH_OR_NOR: bool = False
+    PUSH_STATUS: bool = False
     # PUSHPLUS的TOKEN
+    PUSHPLUS_TOKEN: str = None
+
+
+class IqyLoginCookie(BaseModel):
+    yId: str = None
+    iqy_login_cookie: str = None
+    PUSH_STATUS: bool = False
     PUSHPLUS_TOKEN: str = None
 
 
@@ -27,15 +34,34 @@ class LoginCookie(BaseModel):
                                                     "o_data": "g=64df242b475e272d&t=1690455867510&r=5cFXlb4OTc"}}"""
     # 获取会员信息请求体
     get_vip_info_url_payload: str = """{"geticon": 1, "viptype": "svip", "platform": 1000}"""
+    PUSH_STATUS: bool = False
+    PUSHPLUS_TOKEN: str = None
 
 
 class LoginCookieList(BaseModel):
-    accounts:List[LoginCookie]=[]
+    accounts: List[LoginCookie] = []
+
+
+class IqyLoginCookieList(BaseModel):
+    accounts: List[IqyLoginCookie] = []
+
+
+class TieBaLoginCooke(BaseModel):
+    tId: str = None
+    BDUSS: str = None
+    PUSH_STATUS: bool = False
+    PUSHPLUS_TOKEN: str = None
+
+
+class TieBaCookieList(BaseModel):
+    accounts: List[TieBaLoginCooke] = []
 
 
 class Config(BaseModel):
-    login_cookie_list: LoginCookieList=LoginCookieList()
+    login_cookie_list: LoginCookieList = LoginCookieList()
     push: Optional[Push] = Push()
+    iqy_login_cookie_list: IqyLoginCookieList = IqyLoginCookieList()
+    tie_ba_cookie_list: TieBaCookieList = TieBaCookieList()
 
     @staticmethod
     def load_config() -> Config:

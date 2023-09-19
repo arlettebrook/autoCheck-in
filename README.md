@@ -2,25 +2,33 @@
   <h2 align="center"><storng>自动签到</storng></h2>
   <p align="center">
     autoCheck-in
-    Github Action版
     <br/>
     <br/>
-    <br/>
+    <hr/>
   </p>
 </p>
 
 
 
 
+
+
+
 ## 🎈今日签到状态
 
-![autoCheck-in](https://github.com/arlettebrook/autoCheck-in/actions/workflows/main.yml/badge.svg)
+
+
+[![autoCheck-in](https://github.com/Abnerbanana98/autoCheck-in/actions/workflows/main.yml/badge.svg)](https://github.com/Abnerbanana98/autoCheck-in/actions/workflows/main.yml)
+
+
 
 ---
 
 
 
 ## **⚡ 支持**   
+
+
 
 * [x] 腾讯视频每日凌晨自动签到
 * [x] 腾讯视频每日凌晨自动领取一小时V力值任务【前提已完成，否则为0】
@@ -29,11 +37,17 @@
 * [x] 爱奇艺自动推送每日完成任务情况
 * [x] 贴吧自动签到
 
+
+
 ---
 
 
 
 ## 🍝使用说明
+
+
+
+### 🥓Github Action部署
 
 
 
@@ -54,7 +68,7 @@
 
 4. 至此自动签到就搭建完毕了。
 
-### 
+
 
 |       Secrets名称        |             介绍             | 启用是否必须 |                            说明                             |
 | :----------------------: | :--------------------------: | :----------: | :---------------------------------------------------------: |
@@ -113,6 +127,15 @@
 
 
 
+<details>
+    <summary>其他方式部署</summary>
+    <p align='center'>
+        <a href="https://google.com">self-study</a>
+    </p>
+</details>
+
+
+
 ---
 
 
@@ -137,6 +160,12 @@
   - 不是所有帐号都能签到成功因为有的帐号会触发滑块认证或者短信验证
   - 使用常用手机打开后面的连接，注意是https，成功进入之后点击查看设备信息，QIMEI36字段就是vdevice_qimei36='...'，按照cookie格式加在LOGIN_COOKIE末尾即可。
   - 注意：如果你平时签到之类的都需要验证码和滑块验证，加上这个字段之后并不能解决问题。目前部分账号会出现安全验证。
+- GitHub官方反对并抵制对Actions的滥用，谨慎辨别，避免封号。
+  - 建议使用该方式运行的朋友，暂时先替换其他运行方式。如青龙面板、cfc等方式部署。
+
+- 今日签到状态可以替换成自己的
+
+
 
 
 ---

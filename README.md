@@ -18,7 +18,7 @@
 
 
 
-[![autoCheck-in](https://github.com/Abnerbanana98/autoCheck-in/actions/workflows/main.yml/badge.svg)](https://github.com/Abnerbanana98/autoCheck-in/actions/workflows/main.yml)
+[![autoCheck-in](https://github.com/Abnerbanana98/autoCheck-in/actions/workflows/main.yml/badge.svg)](https://github.com/arlettebrook/autoCheck-in/)
 
 
 

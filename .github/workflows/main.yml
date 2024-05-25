@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '1 16 * * *' #国际标准时间：北京时间00：01
+    - cron: '1 19 * * *' #国际标准时间：北京时间03：01
     - cron: '30 15 * * *' #北京时间23：30
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:

@@ -21,7 +21,7 @@ jobs:
           
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11' # 使用适当的 Python 版本
 
@@ -44,18 +44,18 @@ jobs:
           BDUSS: ${{secrets.BDUSS}}
 
       - name: Checkout code two
-        uses: actions/checkout@v2  
+        uses: actions/checkout@v4  
         
       - name: Append Success Log #追加成功日志
         run: |
           echo "$(date +%Y-%m-%d\ %H:%M:%S) - 今日任务执行成功" >> run.log
       - name: Upload log #上传日志
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: logs
           path: run.log
       - name: Push log #更新日志
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: auto-checkin
           branch: main
